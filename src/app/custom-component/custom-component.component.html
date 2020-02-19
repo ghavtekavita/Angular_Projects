@@ -1,0 +1,9 @@
+<div *ngIf="status; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div>
+    Message to child component from parent component is : {{childComponent}}
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <div><button mat-raised-button (click)="onClick()">Send Message</button></div>
+</ng-template>

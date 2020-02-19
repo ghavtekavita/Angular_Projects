@@ -1,0 +1,14 @@
+.layout{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    color:#4a4a4a;
+}
+.left_layout{
+    display:flex;
+    width:30%; 
+}
+.right_layout{
+    display: flex;
+    width:70%;
+}

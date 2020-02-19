@@ -1,0 +1,138 @@
+<div class="navBar">
+  <div class="mainHeader"> Angular Demo</div>
+</div>
+<div class="content">
+  <div class="contentWrapper">
+    <div class="template">
+      <div class="subHeader" (click)="changeContent()">String Interpolation </div>
+      <div class="data">
+        <div>String Interpolation is used to display <span>{{type}} </span>data</div>
+        <div>string Interpolation also resolve the methods. <span>{{getValue()}}</span></div>
+        <div>Angular evaluates all expression in double curly braces. eg. sum of 1+1 is: <span>{{1+1}}</span></div>
+      </div>
+    </div>
+    <div class="template">
+      <div class="subHeader" [style.background-color]="color">Property Binding : [property]</div>
+      <div class="example">
+        <div class="padding_bottom10">Binding the disable property of an button </div>
+        <div><button mat-flat-button [disabled]="!isallowed">Button</button></div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Binding to innerText property</div>
+        <div [innerText]="isallowed" class="data"></div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Binding to the colSpan property</div>
+        <div class="data">
+          <table>
+            <tr>
+              <td>Column 1</td>
+              <td>Column 2</td>
+            </tr>
+            <tr>
+              <td [colSpan]="2">Span 2 columns</td>
+            </tr>
+            <!--Notice the colSpan property is camel case-->
+          </table>
+        </div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Biding the id property</div>
+        <div [id]="myId" class="data">change the color of text</div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Binding the src property of an image</div>
+        <div (click)="changeImagePath()"><img class="imgMargin" [src]="path"></div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Binding to a property of directive</div>
+        <div [ngClass]="classes" class="data">[ngClass] binding to the classes property making the change in color</div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Binding property of custom component using @Input</div>
+        <app-custom-component class="data" [childComponent]="parentValue" [status]=true></app-custom-component>
+      </div>
+    </div>
+    <div class="template">
+      <div class="subHeader" (click)="changeStyles()">Attribute, Class, and Style binding</div>
+      <div class="example">
+        <div class="padding_bottom10">Attribute Binding</div>
+        <div><button mat-flat-button [attr.aria-label]="actionName">{{actionName}}</button></div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">class binding</div>
+        <div class="data" [class.classBind]="status2">Add or remove the class using class binding (click the above)
+        </div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Style binding</div>
+        <div class="data" [style.border]="borderDiv">We add the border using style binding</div>
+      </div>
+    </div>
+    <div class="template">
+      <div class="subHeader">Event Binding</div>
+      <div class="example">
+        <div class="padding_bottom10">Use the Event binding for the click event on mouse</div>
+        <div class="layout">
+          <div class="left_layout">
+            <button mat-raised-button (click)="changeContent()">Change Text</button>
+          </div>
+          <div class="data right_layout" [style.color]="textColor">{{text}}</div>
+        </div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Use  of $event</div>
+        <div class="data">$event give you all the information about the DOM event that was raised.</div>
+        <div class="layout">
+          <div class="left_layout">
+            <button mat-raised-button (click)="eventBind($event)">GetEventType</button>
+          </div>
+          <div class="data right_layout">Event type is : {{value1}}</div>
+        </div>
+        <div class="data">Get user input from the $event object</div>
+        <div class="layout">
+          <div class="left_layout">
+            <input type="text" placeholder="Enter Name" (keyup)="keyEvent($event)">
+          </div>
+          <div class="data right_layout"> {{value2}}</div>
+        </div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Get user input from the template reference veriable</div>
+        <div class="layout">
+          <div class="left_layout">
+            <input type="text" placeholder="Enter Name" #box (keyup.enter)="templateEvent(box.value)">
+          </div>
+          <div class="data right_layout"> {{value3}}</div>
+        </div>
+      </div>
+      <div class="example">
+        <div class="padding_bottom10">Bind the custom events with EventEmitter using @Output</div>
+          <div class="data">
+            <div class="layout">
+              <div class="left_layout">
+                <app-custom-component (messageToParent)="messageFromChild($event)" [status]=false></app-custom-component>
+              </div>
+              <div class="right_layout">Message from child : {{message}}</div>  
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="template">
+      <div class="subHeader">Two Way Binding [(...)]</div>
+      <div class="example layout">
+        <div class="left_layout"><input type="text" placeholder="Enter Name"[(ngModel)]="yourName" ></div>
+        <div class="right_layout">Your Name is : {{yourName}}</div>
+      </div>
+    </div>
+    <div class="template">
+      <div class="subHeader">Countery code Validation</div>
+      <div class="example layout">
+        <div class="left_layout"><label>Mobile</label></div>
+        <div class="right_layout">
+          <international-phone-number2 [defaultCountry]="'in'" [required]="true"></international-phone-number2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+  }
+  .navBar {
+    min-height:50px;
+    background-color: #1a76d2;
+    color:white;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    .mainHeader{
+        font-size:40px;
+        font-weight: 500;
+        padding:10px 0px;
+    }
+}
+.content{
+    display:flex;
+    justify-content: center;
+    .contentWrapper{
+        display:flex;
+        flex-direction: column;
+        width:100%;
+        max-width:980px;
+    }
+    .template{
+        background-color: #fcfcfc;
+        margin:20px 0px;
+        min-height:100px;
+        .subHeader{
+            font-size:25px;
+            padding:10px;
+            color:white;
+            background-color: #836095;
+        }
+        .example{
+            padding:10px 10px;
+        }
+        .data{
+            font-size:14px;
+            line-height: 1.5;
+            font-weight:350;
+            padding: 10px 0px;
+        }
+        span{
+            color:red;
+        }
+        .ngclassExample{
+            color:rgba(207, 57, 120, 0.575);
+        }
+        #propertyId{
+            color:blue;
+        }
+        .imgMargin{
+            margin-bottom: -10px;
+        }
+        table,td{
+            border:1px solid;
+            border-collapse: collapse;
+            padding:7px;
+        }
+        .classBind{
+            color:green;
+        }
+        .layout{
+            display:flex;
+            justify-content: space-between;
+            width:100%;
+            color:#4a4a4a;
+        }
+        .left_layout{
+            display:flex;
+            width:30%; 
+        }
+        .right_layout{
+            display: flex;
+            width:70%;
+        }
+        input[type="tel"]{
+            width:80%;
+            height:50px;
+        }
+    }
+}  
+.padding_bottom10{
+    padding-bottom: 10px;
+    font-size:20px;
+}
+input[type="text"]{
+    height: 40px;
+}
+  
