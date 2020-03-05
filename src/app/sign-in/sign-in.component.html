@@ -1,0 +1,46 @@
+<div class="navBar">
+  <div class="next_top_button">
+    <button mat-raised-button (click)="onPrevious()">Previous</button>
+  </div>
+</div>
+<div class="Layout">
+  <div class="mainHeader">Sign In</div>
+</div>
+<div class="form" id="fromWidth">
+  <form class="formWrapper" (ngSubmit)="onValidate()" #info="ngForm">
+    <div class="layoutInput">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" required [(ngModel)]="userLogin.email" #email="ngModel" email="true" placeholder="Enter Email">
+        <mat-error *ngIf="email.errors?.required; else valid">Email is Required</mat-error>
+        <ng-template #valid>
+          <mat-error *ngIf="!email.valid">Enter Valid Email</mat-error>
+        </ng-template>
+      </mat-form-field>
+    </div>
+    <div class="layoutInput">
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="psw" required minlength="8" [(ngModel)]="userLogin.password" #psw="ngModel" placeholder="Enter Password">
+        <mat-error *ngIf="psw.errors?.required; else invalid">
+          password is required.
+        </mat-error>
+        <ng-template #invalid>
+          <mat-error *ngIf="psw.errors?.minlength">
+            Password must contain 8 characters.
+          </mat-error>
+        </ng-template>
+      </mat-form-field>
+    </div>
+    <div class="buttonLayout">
+      <mat-error *ngIf="isError">{{errorMessage}}</mat-error>
+    </div>
+    <div class="buttonLayout">
+      <button mat-raised-button [disabled]="!info.form.valid" type="submit">Submit</button>
+    </div>
+    <div class="buttonLayout">
+      <div> Not have account ?</div>
+      <div class="link" (click)="onLogIn()">Log In</div>
+    </div>
+  </form>
+</div>

@@ -1,28 +1,41 @@
 <div class="navBar">
-  <div class="mainHeader"> Angular Demo</div>
+  <div class="mainHeader">Data Binding</div>
+  <div class="next_top_button">
+    <button mat-raised-button (click)="onNavigate()">Next</button>
+  </div>
 </div>
 <div class="content">
   <div class="contentWrapper">
     <div class="template">
       <div class="subHeader" (click)="changeContent()">String Interpolation </div>
-      <div class="data">
-        <div>String Interpolation is used to display <span>{{type}} </span>data</div>
-        <div>string Interpolation also resolve the methods. <span>{{getValue()}}</span></div>
-        <div>Angular evaluates all expression in double curly braces. eg. sum of 1+1 is: <span>{{1+1}}</span></div>
+      <div class="example">
+        <div class="title">String Interpolation is used to display {{type}} data</div>
+      </div>
+      <div class="example">
+        <div class="title">string Interpolation also resolve the methods.</div>
+        <div class="data">{{getValue()}}</div>
+      </div>
+      <div class="example">
+        <div class="title">Angular evaluates all expression in double curly braces.</div>
+        <div class="data"> sum of 1+1 is : <span>{{1+1}}</span></div>
+      </div>
+      <div class="example">
+        <div class="title">Angular can also evaluate ternary operator in double curly braces</div>
+        <div class="data">if status is {{status1}} : {{status1?"Color : "+color:"Color : "+color}}</div>
       </div>
     </div>
     <div class="template">
       <div class="subHeader" [style.background-color]="color">Property Binding : [property]</div>
       <div class="example">
-        <div class="padding_bottom10">Binding the disable property of an button </div>
-        <div><button mat-flat-button [disabled]="!isallowed">Button</button></div>
+        <div class="title">Binding the disable property of an button </div>
+        <div><button mat-raised-button [disabled]="!isallowed">Button</button></div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Binding to innerText property</div>
+        <div class="title">Binding to innerText property</div>
         <div [innerText]="isallowed" class="data"></div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Binding to the colSpan property</div>
+        <div class="title">Binding to the colSpan property</div>
         <div class="data">
           <table>
             <tr>
@@ -37,42 +50,57 @@
         </div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Biding the id property</div>
+        <div class="title">Biding the id property</div>
         <div [id]="myId" class="data">change the color of text</div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Binding the src property of an image</div>
+        <div class="title">Binding the src property of an image</div>
         <div (click)="changeImagePath()"><img class="imgMargin" [src]="path"></div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Binding to a property of directive</div>
+        <div class="title">Binding to a property of directive</div>
         <div [ngClass]="classes" class="data">[ngClass] binding to the classes property making the change in color</div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Binding property of custom component using @Input</div>
-        <app-custom-component class="data" [childComponent]="parentValue" [status]=true></app-custom-component>
+        <div class="title">Custom Property binding using @Input</div>
+        <div class="layout data">
+            <div class="left_layout_input">Enter message to child</div>
+            <input class="right_layout_input" type="text" [(ngModel)]="parentValue">
+        </div>
+        <app-custom-component class="data" [childComponent]="parentValue" [custom_property]="property_name" [status]=true></app-custom-component>
       </div>
     </div>
     <div class="template">
-      <div class="subHeader" (click)="changeStyles()">Attribute, Class, and Style binding</div>
+      <div class="subHeader">Attribute, Class, and Style binding</div>
       <div class="example">
-        <div class="padding_bottom10">Attribute Binding</div>
-        <div><button mat-flat-button [attr.aria-label]="actionName">{{actionName}}</button></div>
+        <div class="title">Attribute Binding using [attr.attribute]="value"</div>
+        <div><button mat-raised-button [attr.aria-label]="actionName">{{actionName}}</button></div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">class binding</div>
-        <div class="data" [class.classBind]="status2">Add or remove the class using class binding (click the above)
+        <div class="title">class binding using [class.className]="true/false"</div>
+        <div class="layout">
+          <div class="left_layout">
+            <button mat-raised-button (click)="classBinding()">{{class_status}}</button>
+          </div>
+          <div class="data right_layout" [class.classBind]="class_status_flag">
+            Add or remove the class using class binding.
+          </div>
         </div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Style binding</div>
-        <div class="data" [style.border]="borderDiv">We add the border using style binding</div>
+        <div class="title">Style binding using [style.property]="value"</div>
+        <div class="layout">
+          <div class="left_layout">
+            <button mat-raised-button (click)="styleBinding()">{{style_status}}</button>
+          </div>
+          <div class="data right_layout" [style.border]="borderDiv">We add the border using style binding</div>
+        </div>
       </div>
     </div>
     <div class="template">
       <div class="subHeader">Event Binding</div>
       <div class="example">
-        <div class="padding_bottom10">Use the Event binding for the click event on mouse</div>
+        <div class="title">Use the Event binding for the click event on mouse</div>
         <div class="layout">
           <div class="left_layout">
             <button mat-raised-button (click)="changeContent()">Change Text</button>
@@ -81,9 +109,9 @@
         </div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Use  of $event</div>
+        <div class="title">Use  of $event</div>
         <div class="data">$event give you all the information about the DOM event that was raised.</div>
-        <div class="layout">
+        <div class="layout padding_bottom">
           <div class="left_layout">
             <button mat-raised-button (click)="eventBind($event)">GetEventType</button>
           </div>
@@ -98,7 +126,7 @@
         </div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Get user input from the template reference veriable</div>
+        <div class="title">Get user input from the template reference veriable</div>
         <div class="layout">
           <div class="left_layout">
             <input type="text" placeholder="Enter Name" #box (keyup.enter)="templateEvent(box.value)">
@@ -107,7 +135,7 @@
         </div>
       </div>
       <div class="example">
-        <div class="padding_bottom10">Bind the custom events with EventEmitter using @Output</div>
+        <div class="title">Bind the custom events with EventEmitter using @Output</div>
           <div class="data">
             <div class="layout">
               <div class="left_layout">
@@ -120,19 +148,63 @@
     </div>
     <div class="template">
       <div class="subHeader">Two Way Binding [(...)]</div>
-      <div class="example layout">
-        <div class="left_layout"><input type="text" placeholder="Enter Name"[(ngModel)]="yourName" ></div>
-        <div class="right_layout">Your Name is : {{yourName}}</div>
+      <div class="example">
+        <div class="title">Two way binding with HMTL inpt element</div>
+        <div class="layout data padding_bottom">
+          <div class="left_layout_input">
+            <label>Name : </label>
+          </div>
+          <div class="right_layout_input">
+            <input type="text" placeholder="Enter Name" [(ngModel)]="yourName" >
+          </div>
+        </div>
+        <div class="layout data">
+          <div class="left_layout_input">
+            <label>Mobile : </label>
+          </div>
+          <div class="right_layout_input">
+            <input type="tel" placeholder="Enter Mobile" [(ngModel)]="yourMobile">
+          </div>
+        </div>
+        <div class="button_submit_layout">
+          <button mat-raised-button type="submit" (click)="displayContent=!displayContent">Sbmit</button>
+        </div>
+        <div *ngIf="displayContent">
+          <div class="data">Name : {{yourName}}</div>
+          <div class="data">Mobile : {{yourMobile}}</div>
+        </div>
       </div>
-    </div>
-    <div class="template">
-      <div class="subHeader">Countery code Validation</div>
-      <div class="example layout">
-        <div class="left_layout"><label>Mobile</label></div>
-        <div class="right_layout">
-          <international-phone-number2 [defaultCountry]="'in'" [required]="true"></international-phone-number2>
+      <div class="example">
+        <div class="title">Two way binding with HMTL select element</div>
+        <div class="layout data">
+          <div class="left_layout">
+            <mat-form-field>
+              <mat-select [(ngModel)]="selected_subject" (selectionChange)="selectedSubject($event)">
+                <mat-option *ngFor="let subject of subjects" [value]="subject">
+                  {{subject.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="right_layout">Your Subject is : {{selected_subject.name}}</div>
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">Two way binding with two component</div>
+        <div class="data">
+          <div class="padding_bottom">
+            <app-child-demo1 [(size)]="fontSize"></app-child-demo1>
+          </div>
+          <div class="padding_bottom">
+            <input type="number" [(ngModel)]="fontSize">
+            <label [style.font-size.px]="fontSize"> : Font Size</label>
+          </div>
+          <div [style.font-size.px]="fontSize">Resisable text</div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<div class="nextButton">
+  <button mat-raised-button (click)="onNavigate()">Next</button>
 </div>

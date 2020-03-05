@@ -1,3 +1,5 @@
-<p>
-  child-demo1 works!
-</p>
+<div id="child_button">
+  <button mat-raised-button (click)="dec()" title="smaller">-</button>
+  <button mat-raised-button (click)="inc()" title="bigger">+</button>
+  <label [style.font-size.px]="size" class="padding_left">FontSize : {{size}}px</label>
+</div>

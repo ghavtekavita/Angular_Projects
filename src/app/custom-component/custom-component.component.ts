@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 export class CustomComponentComponent implements OnInit {
   @Input() childComponent:string;
   @Input() status:boolean=true;
+  @Input('custom_property') value:string;
   @Output() messageToParent:EventEmitter<string> = new EventEmitter<string>(); 
 
   constructor() { }

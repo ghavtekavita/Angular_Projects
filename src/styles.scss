@@ -1,4 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "poppins_regular";
+    src: url("./assets/poppins/Poppins-Regular.ttf");
+    src: url("./assets/poppins/Poppins-Regular.ttf") format("truetype");
+    }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: 'poppins_regular', "Helvetica Neue", sans-serif;
+ }
+.mat-raised-button {
+    background-color: #3b3b3b;
+    color:white;
+}
+#child_button{
+    .mat-raised-button {
+        border-radius: 0px;
+    }
+}
+.mat-divider {
+    border-top-width: 2px;
+    border-top-color: blue;
+}
+#fromWidth{
+    .mat-form-field{
+        width:80%;
+    }
+}
+#radio{
+    .mat-radio-label-content {
+        padding-left: 8px;
+        padding-right: 30px;
+        font-size: 14px;
+    }
+}

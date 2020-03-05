@@ -5,7 +5,7 @@
   }
   .navBar {
     min-height:50px;
-    background-color: #1a76d2;
+    background-color: #000000;
     color:white;
     display:flex;
     justify-content: center;
@@ -14,6 +14,14 @@
         font-size:40px;
         font-weight: 500;
         padding:10px 0px;
+        margin:auto;
+    }
+    .next_top_button{
+        .mat-raised-button{
+            border-radius: 0px;
+            background-color: #4a4a4a;
+            width:120px;
+        }
     }
 }
 .content{
@@ -26,14 +34,13 @@
         max-width:980px;
     }
     .template{
-        background-color: #fcfcfc;
         margin:20px 0px;
         min-height:100px;
         .subHeader{
             font-size:25px;
             padding:10px;
             color:white;
-            background-color: #836095;
+            background-color: #4a4a4a;
         }
         .example{
             padding:10px 10px;
@@ -42,7 +49,8 @@
             font-size:14px;
             line-height: 1.5;
             font-weight:350;
-            padding: 10px 0px;
+            //padding: 10px 0px;
+            color:#4a4a4a;
         }
         span{
             color:red;
@@ -62,7 +70,8 @@
             padding:7px;
         }
         .classBind{
-            color:green;
+            color:blue;
+            font-weight:bold;
         }
         .layout{
             display:flex;
@@ -78,17 +87,48 @@
             display: flex;
             width:70%;
         }
-        input[type="tel"]{
+        .left_layout_input{
+            display:flex;
+            width:20%; 
+        }
+        .right_layout_input{
+            display: flex;
             width:80%;
-            height:50px;
+        }
+        input[type="number"]{
+            width:60px;
+            height:40px;
+            padding-left:10px;
+        }
+    }
+    .title{
+        padding-top: 10px;
+        font-size:18px;
+    }
+    .padding_bottom{
+        padding-bottom: 20px;
+    }
+    input[type="text"],[type="tel"]{
+        height: 40px;
+        width:50%;
+        padding-left:10px;
+    }
+    .button_submit_layout{
+        display:flex;
+        justify-content: center;
+        padding-top: 10px;
+        width:80%;
+        .mat-raised-button{
+            width:100px;
         }
     }
 }  
-.padding_bottom10{
-    padding-bottom: 10px;
-    font-size:20px;
-}
-input[type="text"]{
-    height: 40px;
+.nextButton{
+    float:right;
+    .mat-raised-button {
+        width:120px;
+        border-radius:0px;
+        background-color: #4a4a4a;
+    }
 }
   

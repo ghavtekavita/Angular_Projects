@@ -1,3 +1,107 @@
-<p>
-  demo2 works!
-</p>
+<div class="navBar">
+  <div class="next_top_button">
+    <button mat-raised-button (click)="onPrevious()">Previous</button>
+  </div>
+  <div class="mainHeader">Directives</div>
+  <div class="next_top_button">
+    <button mat-raised-button (click)="onNext()">Next</button>
+  </div>
+</div>
+<div class="content">
+  <div class="contentWrapper">
+    <div class="template">
+      <div class="subHeader" (click)="changeContent()">Type of Directive</div>
+        <div class="title">Component Directive</div>
+        <div class="title">Structural Directives</div>
+        <div class="title">Attribute Directive</div>
+    </div>
+    <div class="template">
+      <div class="subHeader" (click)="changeContent()">Attribute Directives []</div>
+      <div class="example">
+        <div class="title">ngClass</div>
+        <div class="data" [ngClass]="cssClass1">
+          Adding an ngClass property binding to cssClasses sets the element's classes accordingly:
+        </div>
+        <div class="layout padding_bottom">
+          <div class="left_layout_input">
+            <button mat-raised-button (click)="getClass()">Add Class</button>
+          </div>
+          <div class="right_layout_input" [ngClass]="cssClass2">
+            Add and remove a set of css classes with ngClass
+          </div>
+        </div>
+        <div class="layout">
+          <div class="left_layout_input">
+            <button mat-raised-button (click)="isApply=!isApply">Add claases</button>
+          </div>
+          <div class="data right_layout_input" [ngClass]="isApply?'class1':'class3'">
+            Add or remove several CSS classes simultaneously with ngClass         
+          </div>
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">ngStyle</div>
+        <div class="layout">
+          <div class="left_layout_input">
+            <button mat-raised-button (click)="getStyle()">Add Style</button>
+          </div>
+          <div class="data right_layout_input" [ngStyle]="cssStyle">
+            Add or remove several css style with ngStyle         
+          </div>
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">Custom Attribute Directive</div>   
+        <div class="data" [appDemo2directive]="color">
+          An attribute directive minimally requires building a controller class annotated with @Directive,
+          which specifies the selector that identifies the attribute.
+          The controller class implements the desired directive behavior.
+        </div> 
+      </div>
+    </div>
+    <div class="template">
+      <div class="subHeader">Structural Directives *</div>
+      <div class="example">
+        <div class="title">*ngIf</div>
+        <div class="layout">
+          <div class="left_layout_input">
+            <button mat-raised-button (click)="if_flag=!if_flag">Click</button>
+          </div>
+          <div class="data right_layout_input" *ngIf="if_flag;else otherBlock">
+            Add or remove Html element inside Dom         
+          </div>
+          <ng-template #otherBlock>
+            <div class="data right_layout_input" *ngIf="!if_flag">
+              We can Write nested if-else using ngIf         
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">*ngFor</div>
+        <div class="data" *ngFor="let opt of arr; let i=index">
+          {{i}} : {{opt}}
+        </div>
+      </div>
+      <div class="example">
+        <div class="title">[ngSwitch]</div>
+        <div class="layout">
+          <div class="left_layout">
+            <input type="text" [(ngModel)]="mark" placeholder="Enter Your Mark">
+          </div>
+          <div class="right_layout" [ngSwitch]="mark">
+            <div class="data" *ngSwitchCase= "70">You are in distinction</div>
+            <div class="data" *ngSwitchCase= "60">You are in First Class</div>
+            <div class="data" *ngSwitchCase= "50">You are in Secound Class</div>
+            <div class="data" *ngSwitchCase= "35">You are pass</div>
+            <div class="data" *ngSwitchCase= "30">You are Fail</div>
+            <div class="data" *ngSwitchDefault></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="nextButton">
+  <button mat-raised-button (click)="onNext()">Next</button>
+</div>

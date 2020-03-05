@@ -1,0 +1,142 @@
+<div class="header">Log In</div>
+<div class="form">
+  <div class="formWrapper" [formGroup]="loginForm">
+    <div class="form_section">Personal Info</div>
+    <div formGroupName="personal_info">    
+      <div class="layoutInput">
+        <div class="left_layout">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name" placeholder="Enter name">
+            <mat-error *ngIf="!loginForm.get('personal_info.name').valid && loginForm.get('personal_info.name').touched">
+              Please enter valid name
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="right_layout" id="dob">
+          <mat-form-field>
+            <mat-label>D.O.B.</mat-label>
+            <input matInput type="text" [matDatepicker]="dob" formControlName="dob">
+            <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+            <mat-datepicker #dob></mat-datepicker>
+            <mat-error *ngIf="loginForm.get('personal_info.dob').touched">
+              Please enter valid date
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="layoutInput">
+        <div class="left_layout">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email">
+            <mat-error *ngIf="!loginForm.get('personal_info.email').valid && loginForm.get('personal_info.email').touched ">
+                Please enter valid email
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="right_layout">
+          <mat-form-field>
+            <mat-label>Mobile</mat-label>
+            <input matInput type="tel" formControlName="mobile">
+            <mat-error *ngIf="!loginForm.get('personal_info.mobile').valid && loginForm.get('personal_info.mobile').touched ">
+                Please enter valid Mobile
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="layoutRadio" id="radio">
+        <mat-label >Gender</mat-label>
+        <mat-radio-group [formControlName]="'gender'">
+          <mat-radio-button *ngFor="let gender of genderArr" [value]="gender">{{gender}}</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="form_section">Address Info</div>
+    <div formGroupName="address_info">
+      <div class="layoutInput">
+        <div class="left_layout">
+          <mat-form-field>
+            <mat-label>Locality</mat-label>
+            <input matInput type="text" formControlName="locality">
+            <mat-error *ngIf="loginForm.get('address_info.locality').touched">
+              Locality is required. 
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="right_layout">
+          <mat-form-field>
+            <mat-label>city</mat-label>
+            <input matInput type="text" formControlName="city">
+            <mat-error *ngIf="loginForm.get('address_info.city').touched">
+              City is required. 
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="layoutInput">
+        <div class="left_layout">
+          <mat-form-field>
+            <mat-label>District</mat-label>
+            <mat-select [formControlName]="'district'">
+              <mat-option *ngFor="let dist of districtArr" [value]="dist">
+                {{dist}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="right_layout">
+          <mat-form-field>
+            <mat-label>State</mat-label>
+            <mat-select [formControlName]="'state'">
+              <mat-option *ngFor="let state of stateArr" [value]="state">
+                {{state}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="layoutInput">
+        <div class="left_layout">
+          <mat-form-field>
+            <mat-label>Pin Code</mat-label>
+            <input matInput type="text" formControlName="pin">
+            <mat-error *ngIf="loginForm.get('address_info.pin').touched">
+              pin is required. 
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="form_section">Password Info</div>
+    <div formGroupName="pass_info">
+      <div class="layoutInput">
+        <div class="left_layout">
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+            <mat-error *ngIf="loginForm.get('pass_info.password').touched">
+              Password is required. 
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="right_layout">
+          <mat-form-field>
+            <mat-label>Confirm Password</mat-label>
+            <input matInput type="password" formControlName="confirm_password">
+            <mat-error *ngIf="loginForm.get('pass_info.confirm_password').touched">
+              Password is required. 
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div class="buttonLayout">
+      <button mat-raised-button (click)="onSubmit()" [disabled]="!loginForm.valid">Submit</button>
+    </div>
+    <div class="buttonLayout">
+      <div >already have account ? </div>
+      <div class="link" (click)="onSignIn()">Sign In</div>
+    </div>
+  </div>
+</div>
